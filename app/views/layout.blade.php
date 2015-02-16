@@ -9,7 +9,7 @@
     </head>
     
     <body>
-      <h1></h1>
+      <div class="row">
       <div class="col-md-10">
         @if (!Auth::check())
             <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
@@ -25,6 +25,10 @@
             </ul>
         @endif
         </div>
+
+      </div>
+      <div class="row">
       @yield('content')
+      </div>
     </body>
 </html>
