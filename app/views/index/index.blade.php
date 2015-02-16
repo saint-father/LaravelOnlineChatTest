@@ -8,7 +8,9 @@
     </head>
     <!-- Both Blade and EmberJS use double-curly-brace syntax, thus our template includes @ symbols before all EmberJS blocks. -->
     <body>
+        <div class="row">
         <div class="col-md-10">
+            <div class="row">
         @if (!Auth::check())
             <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
                 <a href="/users/login" class="btn btn-success">Login</a>
@@ -23,9 +25,15 @@
                 <li id='isOnline'></li>
             </ul>
         @endif
+            </div>
+            <div class="row">
+                @foreach ($users as $user)
+                    {{ $user->username }}
+                @endforeach                    
+            </div>
         </div>
-        <div class="col-md-2"></div>
-        <hr class="col-md-12">
+        </div>
+        <hr class="row">
         <script type="text/x-handlebars">
             @{{outlet}}
         </script>
@@ -36,11 +44,15 @@
                     <h2>Online Chat</h2>
                     <div class="input-group col-md-12">
                         @{{input type="text" value=command class="form-control"}}
-                        <!-- span class="input-group-btn">
+                        <span class="input-group-btn">
                             <button class="btn btn-default" @{{action "send"}}>Send</button>
-                        </span -->
+                        </span>
                     </div>
-                    <div class="col-md-6">Please type your message and press Enter.</div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            Please type your message and press Enter.
+                        </div>
+                    </div>
                     <div class="col-md-6">Please use @chname command for changing your nicname. For example type "@chname John Dou" (without quotes) and press Enter.</div>
                 </div>
             </div>
@@ -51,8 +63,8 @@
                     <table class="table table-striped">
                         @{{#each message in model}}
                             <tr>
-                                <td @{{bind-attr class="message.user_id_class"}}>
-                                    @{{message.user_name}}
+                                <td @{{bind-attr class="message.userIdClass"}}>
+                                    @{{message.userName}}
                                 </td>
                                 <td>
                                     @{{message.message}}

@@ -3,8 +3,9 @@
 namespace Formativ\Chat;
 
 use Ratchet\ConnectionInterface;
+use Illuminate\Database\Eloquent\Model;
 
-class User
+class User extends Model 
 implements UserInterface
 {
     protected $socket;

@@ -22,4 +22,11 @@ class BaseController extends Controller {
             ));
         }        
         
+        protected function chatMessage($message, $redirect = false) {
+            return View::make('message', array(
+                'message'   => $message,
+                'redirect'  => $redirect,
+            ));
+        }        
+        
 }

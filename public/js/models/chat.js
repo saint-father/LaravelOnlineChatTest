@@ -20,15 +20,20 @@
  */
 // define a Message model ()
 App.Message = DS.Model.extend({
-    "user_id"       : DS.attr("integer"),
-    "user_name"     : DS.attr("string"),
-    "user_id_class" : DS.attr("string"),
+    "userId"       : DS.attr("number"),
+    "userName"     : DS.attr("string"),
+    "userIdClass" : DS.attr("string"),
     "message"       : DS.attr("string")
 });
 
 App.ApplicationStore = DS.Store.extend({
-    "adapter" : DS.FixtureAdapter.extend()
+//    "adapter" : DS.FixtureAdapter.extend()
 });
 
-App.Message.FIXTURES = [
-];
+//App.Message.FIXTURES = [
+//];
+
+//App.Post = DS.Model.extend({
+//  title: DS.attr('string'),
+//  body: DS.attr('string')
+//});

@@ -52,9 +52,9 @@ try {
 //                    $(".name-" + data.user.id).html($('#initialusernicname').text());
                     store.push("message", {
                         "id"            : id++,
-                        "user_id"       : data.user.id,
-                        "user_name"     : data.user.name || defaultName,
-                        "user_id_class" : "name-" + data.user.id,
+                        "userId"       : data.user.id,
+                        "userName"     : data.user.name || defaultName,
+                        "userIdClass" : "name-" + data.user.id,
                         "message"       : data.message.data
                     });
 

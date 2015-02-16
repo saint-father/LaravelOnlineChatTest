@@ -1,14 +1,18 @@
 <?php
 Route::get('/', array('before' => 'auth', function()
 {
-    return View::make("index/index");
+    $users = User::all();
+    return View::make("index/index")->with('users', $users);
     // Only authenticated users may enter...
 }));
-////load a custom view
-//Route::get("/", function()
-//{
-//    return View::make("index/index");
-//});
+
+
+
+Route::get('messages', function()
+{
+    return Response::json(array('messages' => array(array('id' => 1111, 'userId' => 987, 'userName' => 'SF123', 'userIdClass' => 'user_id_class3333333', 'message' => 'SF--SF'))));
+});
+
 
 Route::get("phpinfo", function()
 {
