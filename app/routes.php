@@ -10,7 +10,7 @@ Route::get('/', array('before' => 'auth', function()
 
 Route::get('messages', function()
 {
-    return Response::json(array('messages' => array(array('id' => 1111, 'userId' => 987, 'userName' => 'SF123', 'userIdClass' => 'user_id_class3333333', 'message' => 'SF--SF'))));
+    return Response::json(array('messages' => array(array('id' => 1111, 'userId' => 987, 'userName' => 'SF123', 'message' => 'SF--SF'))));
 });
 
 

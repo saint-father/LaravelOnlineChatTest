@@ -22,7 +22,6 @@
 App.Message = DS.Model.extend({
     "userId"       : DS.attr("number"),
     "userName"     : DS.attr("string"),
-    "userIdClass" : DS.attr("string"),
     "message"       : DS.attr("string")
 });
 

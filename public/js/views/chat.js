@@ -54,7 +54,7 @@ try {
                         "id"            : id++,
                         "userId"       : data.user.id,
                         "userName"     : data.user.name || defaultName,
-                        "userIdClass" : "name-" + data.user.id,
+//                        "userIdClass" : "name-" + data.user.id,
                         "message"       : data.message.data
                     });
 
