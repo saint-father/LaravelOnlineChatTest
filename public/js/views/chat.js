@@ -7,6 +7,7 @@ App.IndexView = Ember.View.extend({
     }
 
 });
+//App.IndexView.get("controller").send("init", );
 
 try {
 
@@ -22,12 +23,12 @@ try {
         var id     = 1;
 
         socket.addEventListener("open", function (e) {
-//            console.log("open: ", e);
-//            console.log("initialusernicname: ", $('#initialusernicname').text());
-//            var data = JSON.parse(e.data);
-//            console.log("data: ", data);
-//            $(".name-" + data.user.id).html($('#initialusernicname').text());
-////            App.get("controller").send("init", $('#initialusernicname').text());
+            console.log('Open - '+ $('#initialusernicname').text());
+            socket.send(JSON.stringify({
+                "type" : "name",
+                "data" : $('#initialusernicname').text()
+            }));            
+            
         });
 
         socket.addEventListener("error", function (e) {
@@ -47,7 +48,8 @@ try {
                     break;
 
                 case "message":
-                    defaultName = 'Anonimous';//(data.message.isCurrentUser === 'yes')?$('#initialusernicname').text():'Anonimous';
+                    defaultName = 'Anonimous-' + data.user.id;//(data.message.isCurrentUser === 'yes')?$('#initialusernicname').text():'Anonimous';
+//                    $(".name-" + data.user.id).html($('#initialusernicname').text());
                     store.push("message", {
                         "id"            : id++,
                         "user_id"       : data.user.id,

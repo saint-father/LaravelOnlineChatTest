@@ -5,14 +5,12 @@ App.IndexController = Ember.ArrayController.extend({
 
     "actions" : {
 
-        "send" : function(key,isCurrentUser) {
+        "send" : function(key) {
 
             if (key && key != 13) {
                 return;
-            } else {
-                isCurrentUser = 1;
-            }
-
+            } 
+            
             var command = this.get("command") || "";
 
             if (command.indexOf("@chname") === 0) {
@@ -26,7 +24,6 @@ App.IndexController = Ember.ArrayController.extend({
 
                 socket.send(JSON.stringify({
                     "type" : "message",
-                    "isCurrentUser": (isCurrentUser===1)?'yes':'no',
                     "data" : command
                 }));
 
