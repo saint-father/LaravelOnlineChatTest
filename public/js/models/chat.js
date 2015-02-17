@@ -32,7 +32,3 @@ App.ApplicationStore = DS.Store.extend({
 //App.Message.FIXTURES = [
 //];
 
-//App.Post = DS.Model.extend({
-//  title: DS.attr('string'),
-//  body: DS.attr('string')
-//});

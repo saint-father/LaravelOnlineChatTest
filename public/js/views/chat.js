@@ -42,9 +42,7 @@ try {
             switch (data.message.type) {
 
                 case "name":
-
                     $(".name-" + data.user.id).html(data.user.name);
-
                     break;
 
                 case "message":

@@ -8,10 +8,11 @@ Route::get('/', array('before' => 'auth', function()
 
 
 
-Route::get('messages', function()
-{
-    return Response::json(array('messages' => array(array('id' => 1111, 'userId' => 987, 'userName' => 'SF123', 'message' => 'SF--SF'))));
-});
+//Route::get('messages', function()
+//{
+//    return Response::json(array('messages' => array(array('id' => 1111, 'userId' => 987, 'userName' => 'SF123', 'message' => 'SF--SF'))));
+//});
+Route::controller('messages', 'MessagesController'); // REST
 
 
 Route::get("phpinfo", function()

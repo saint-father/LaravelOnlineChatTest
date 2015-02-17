@@ -9,29 +9,27 @@
     <!-- Both Blade and EmberJS use double-curly-brace syntax, thus our template includes @ symbols before all EmberJS blocks. -->
     <body>
         <div class="row">
-        <div class="col-md-10">
-            <div class="row">
-        @if (!Auth::check())
-            <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
-                <a href="/users/login" class="btn btn-success">Login</a>
-                <a href="/users/register" class="btn btn-success">Registration</a>
-            </form>
-        @else
-            <form class="navbar-form navbar-right" role="form" action="/users/logout">
-                <button class="btn btn-success">Logout</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><strong id='initialusernicname'>{{ Auth::user()->username }}</strong></a></li>
-                <li id='isOnline'></li>
-            </ul>
-        @endif
+            <div class="col-md-8">Other users who's online:
+                    @foreach ($users as $user)
+                        @if (Auth::user()->username != $user->username) {{ $user->username }}, @endif
+                    @endforeach                    
             </div>
-            <div class="row">
-                @foreach ($users as $user)
-                    {{ $user->username }}
-                @endforeach                    
+            <div class="col-md-4">
+            @if (!Auth::check())
+                <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
+                    <a href="/users/login" class="btn btn-success">Login</a>
+                    <a href="/users/register" class="btn btn-success">Registration</a>
+                </form>
+            @else
+                <form class="navbar-form navbar-right" role="form" action="/users/logout">
+                    <button class="btn btn-success">Logout</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong id='initialusernicname'>{{ Auth::user()->username }}</strong></a></li>
+                    <li id='isOnline'></li>
+                </ul>
+            @endif
             </div>
-        </div>
         </div>
         <hr class="row">
         <script type="text/x-handlebars">
@@ -60,7 +58,7 @@
                 <div class="col-md-12">
                     <br><br><br>
                     Messages list:(@{{model.length}})
-                    <table class="table table-striped">
+                    <table class="table table-striped table-hover table-bordered">
                         @{{#each message in model}}
                             <tr>
                                 <td @{{bind-attr class="message.userIdClass"}}>
