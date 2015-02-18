@@ -32,16 +32,20 @@
             </div>
         </div>
         <hr class="row">
-        <!-- div class="row">
+        <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-3 text-right">
             Select a Person to speak with:
             </div>
             <div class="col-md-3 text-left">
-            
+                <select id="testSelect">
+                    <option value="1">--All my messages--</option>
+                    <option value="2">first</option>
+                    <option value="3">second</option>
+                </select>            
             </div>
             <div class="col-md-2"></div>
-        </div -->
+        </div>
         <script type="text/x-handlebars">
             @{{outlet}}
         </script>
@@ -96,5 +100,6 @@
         <script type="text/javascript" src="js/models/chat.js"></script>
         <script type="text/javascript" src="js/controllers/chat.js"></script>
         <script type="text/javascript" src="js/views/chat.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
     </body>
 </html>

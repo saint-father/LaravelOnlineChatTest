@@ -21,6 +21,17 @@ class MessagesController extends BaseController {
         return Response::json(array('messages' => $messages->toArray()));
     }    
     
+    public function anyConversation() { // REST
+        $messages = Message::where( function ($query) {
+            $query->where('userId', '=', Auth::user()->id)
+                ->where('receiverId', '=', Input::get('receiverId'));
+        })->orWhere(  function ($query) {
+            $query->where('receiverId', '=', Auth::user()->id)
+                ->where('userId', '=', Input::get('receiverId'));
+        })->take(10)->get();
+        return Response::json(array('messages' => $messages->toArray()));
+    }    
+    
 }
 
 

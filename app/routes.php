@@ -14,7 +14,6 @@ Route::get('/', array('before' => 'auth', function()
 //});
 Route::controller('messages', 'MessagesController'); // REST
 
-
 Route::get("phpinfo", function()
 {
     return View::make("phpinfo");

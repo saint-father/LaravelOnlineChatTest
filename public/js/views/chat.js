@@ -27,7 +27,7 @@ try {
     } else {
 
         var socket = new WebSocket("ws://127.0.0.1:8080/");
-        var id     = 1;
+        var id     = 1000;
 
         socket.addEventListener("open", function (e) {
             console.log('Open - '+ $('#initialusernicname').text());
