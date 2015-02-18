@@ -11,7 +11,14 @@ class MessagesController extends BaseController {
     }    
     
     public function getIndex() { // REST
-        return Response::json(array('messages' => Message::all()->toArray()));
+        $messages = Message::where( function ($query) {
+            $query->where('userId', '=', Auth::user()->id);
+//                ->where('receiverId', '=', 1);
+        })->orWhere(  function ($query) {
+            $query->where('receiverId', '=', Auth::user()->id);
+//                ->where('receiverId', '=', 1);
+        })->take(10)->get();
+        return Response::json(array('messages' => $messages->toArray()));
     }    
     
 }

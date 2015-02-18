@@ -1,5 +1,12 @@
 
 
+App.CusersView = Ember.View.extend({
+
+    "keyDown" : function(e) {
+        this.get("controller").send("send", e.keyCode, 1);
+    }
+
+});
 App.IndexView = Ember.View.extend({
 
     "keyDown" : function(e) {

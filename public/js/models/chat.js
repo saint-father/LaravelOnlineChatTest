@@ -29,6 +29,16 @@ App.ApplicationStore = DS.Store.extend({
 //    "adapter" : DS.FixtureAdapter.extend()
 });
 
+App.Cuser = DS.Model.extend({
+    "id"       : DS.attr("number"),
+    "username"     : DS.attr("string"),
+    "email"       : DS.attr("string")
+});
+
+//App.CuserStore = DS.Store.extend({
+////    "adapter" : DS.FixtureAdapter.extend()
+//});
+
 //App.Message.FIXTURES = [
 //];
 

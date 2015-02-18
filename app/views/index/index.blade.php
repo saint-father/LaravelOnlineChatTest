@@ -9,7 +9,7 @@
     <!-- Both Blade and EmberJS use double-curly-brace syntax, thus our template includes @ symbols before all EmberJS blocks. -->
     <body>
         <div class="row">
-            <div class="col-md-8">Other users who's online:
+            <div class="col-md-8">Other users who's registered:
                     @foreach ($users as $user)
                         @if (Auth::user()->username != $user->username) {{ $user->username }}, @endif
                     @endforeach                    
@@ -32,8 +32,21 @@
             </div>
         </div>
         <hr class="row">
+        <!-- div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-3 text-right">
+            Select a Person to speak with:
+            </div>
+            <div class="col-md-3 text-left">
+            
+            </div>
+            <div class="col-md-2"></div>
+        </div -->
         <script type="text/x-handlebars">
             @{{outlet}}
+        </script>
+        <script type="text/x-handlebars" data-template-name="cusers">
+             <h3>Cusers template</h3>
         </script>
         <script type="text/x-handlebars" data-template-name="index">
         <div class="container">
@@ -57,7 +70,7 @@
             <div class="col-md-6">
                 <div class="col-md-12">
                     <br><br><br>
-                    Messages list:(@{{model.length}})
+                    Your messages:(@{{model.length}})
                     <table class="table table-striped table-hover table-bordered">
                         @{{#each message in model}}
                             <tr>

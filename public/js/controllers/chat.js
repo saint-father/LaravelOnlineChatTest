@@ -41,3 +41,17 @@ App.IndexController = Ember.ArrayController.extend({
     }
 
 });
+
+App.CusersController = Ember.ArrayController.extend({
+    "command" : null,
+    "actions" : {
+        "send" : function(key) {
+            var command = this.get("command") || "";
+            this.set("command", null);
+        },
+        "init" : function(username) {
+        }
+
+    }
+
+});
