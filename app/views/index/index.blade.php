@@ -9,11 +9,7 @@
     <!-- Both Blade and EmberJS use double-curly-brace syntax, thus our template includes @ symbols before all EmberJS blocks. -->
     <body>
         <div class="row">
-            <div class="col-md-8">Other users who's registered:
-                    @foreach ($users as $user)
-                        @if (Auth::user()->username != $user->username) {{ $user->username }}, @endif
-                    @endforeach                    
-            </div>
+            <div class="col-md-8"></div>
             <div class="col-md-4">
             @if (!Auth::check())
                 <form class="navbar-form navbar-right" role="form" action="{{ action('UsersController@postLogin') }}" method="post">
@@ -40,8 +36,11 @@
             <div class="col-md-3 text-left">
                 <select id="testSelect">
                     <option value="1">--All my messages--</option>
-                    <option value="2">first</option>
-                    <option value="3">second</option>
+                    @foreach ($users as $user)
+                        @if (Auth::user()->username != $user->username) 
+                        <option value="{{ $user->id }}">{{ $user->username }}</option>
+                        @endif
+                    @endforeach                    
                 </select>            
             </div>
             <div class="col-md-2"></div>
